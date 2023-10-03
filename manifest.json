@@ -1,0 +1,12 @@
+{
+  "name": "x2tw",
+  "version": "1.0",
+  "description": "𝕏警察を消し去ります",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["script.js"]
+    }
+  ]
+}
