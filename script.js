@@ -4,12 +4,20 @@ const replace = "Twitter";
 
 // ツイート本文を特定するためのクラス名
 const tweetTextClass = "r-1tl8opc";
+const logoClass = "r-1awozwy"; // ロゴ部分を特定するためのクラス
 
 // ページ内のツイート本文を置換する関数
 function replaceTweetText() {
   const tweetTextElements = document.querySelectorAll(`.${tweetTextClass}`);
+
   tweetTextElements.forEach(element => {
-    element.textContent = element.textContent.replace(new RegExp(search, "g"), replace);
+    // ロゴ部分が含まれているか確認
+    const logoElement = element.closest(`.${logoClass}`);
+    
+    // ロゴ部分を含む要素を除外
+    if (!logoElement) {
+      element.textContent = element.textContent.replace(new RegExp(search, "g"), replace);
+    }
   });
 }
 
